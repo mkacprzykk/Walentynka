@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    color: #333;
+    background-color: #fef0f4;
+    overflow-x: hidden;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap');
+
+/* --- ANIMACJE TŁA (bez zmian) --- */
+.background-animation {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: -1; overflow: hidden;
+}
+.heart, .flower {
+    position: absolute; background-color: #ff69b4; opacity: 0;
+    animation: fall ease-in-out forwards;
+}
+.heart { width: 20px; height: 20px; transform: rotate(-45deg); border-radius: 50% 50% 0 0; }
+.heart::before, .heart::after { content: ''; position: absolute; width: 20px; height: 20px; background-color: #ff69b4; border-radius: 50%; top: -10px; left: 0; }
+.heart::after { left: 10px; top: 0; }
+.flower { font-size: 24px; content: '🌸'; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; transform: rotate(var(--rotation, 0deg)); }
+@keyframes fall {
+    0% { transform: translateY(-10vh) translateX(var(--start-x, 0)) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; } 90% { opacity: 1; }
+    100% { transform: translateY(110vh) translateX(var(--end-x, 0)) rotate(var(--end-rotation, 360deg)); opacity: 0; }
+}
+
+/* --- HEADER I NOWE DEKORACJE BOCZNE --- */
+header {
+    background-color: #ffc0cb;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 10;
+    display: flex; /* Używamy flexboxa do pozycjonowania boków */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Żeby dekoracje nie wychodziły poza header */
+}
+
+.header-content {
+    z-index: 2;
+}
+
+.side-deco {
+    position: absolute;
+    font-size: 5rem;
+    opacity: 0;
+    animation: bloom 1.5s ease-out forwards;
+    z-index: 1;
+}
+
+.deco-left {
+    left: 20px;
+    transform-origin: bottom left;
+    animation-delay: 0.5s;
+}
+
+.deco-right {
+    right: 20px;
+    transform-origin: bottom right;
+    transform: scaleX(-1); /* Odbicie lustrzane */
+    animation-delay: 0.8s;
+}
+
+@keyframes bloom {
+    0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+    70% { transform: scale(1.1) rotate(5deg); opacity: 0.8; }
+    100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+}
+
+header h1 { font-family: 'Pacifico', cursive; font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+header p { font-size: 1.2rem; font-weight: 400; }
+
+/* --- GŁÓWNY CONTENR --- */
+main { padding: 3rem 1rem; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem; }
+section { background-color: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); text-align: center; }
+
+/* --- INTRO SECTION (bez zmian) --- */
+.intro-section { display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; justify-content: center; }
+.intro-text { flex: 1; min-width: 300px; }
+.intro-image { flex: 1; min-width: 250px; max-width: 400px; }
+.intro-image img { max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+h2 { font-family: 'Pacifico', cursive; color: #ff69b4; font-size: 2.5rem; margin-bottom: 1.5rem; }
+p { line-height: 1.6; font-size: 1.1rem; color: #555; }
+.buttons-container { margin-top: 2.5rem; display: flex; justify-content: center; gap: 1.5rem; position: relative; min-height: 80px; }
+button { padding: 15px 30px; font-size: 1.2rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+#btnYes { background-color: #ff69b4; color: white; }
+#btnYes:hover { background-color: #e64a9b; transform: translateY(-3px); }
+#btnNo { background-color: #ccc; color: #666; }
+.flee-button { position: absolute; transition: all 0.2s ease-out; white-space: nowrap; }
+
+/* --- SLIDER (bez zmian) --- */
+.gallery-section { overflow: hidden; position: relative; }
+.slider-container { position: relative; width: 100%; max-width: 700px; margin: 2rem auto; overflow: hidden; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.slider { display: flex; transition: transform 0.5s ease-in-out; }
+.slider img { min-width: 100%; height: 450px; object-fit: cover; border-radius: 15px; }
+.prev-button, .next-button { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 105, 180, 0.7); color: white; border: none; padding: 10px 15px; font-size: 1.5rem; cursor: pointer; border-radius: 50%; z-index: 1; }
+.prev-button:hover, .next-button:hover { background-color: rgba(255, 105, 180, 1); }
+.prev-button { left: 10px; } .next-button { right: 10px; }
+
+/* --- PĄCZKI I GRA --- */
+.donut-section { position: relative; overflow: hidden; min-height: 300px; }
+/* PAMIĘTAJ O PODMIANIE URL NA SWÓJ PLIK LOKALNY NP. url('paczek.png') */
+.donut { position: absolute; width: 60px; height: 60px; background-size: cover; background-image: url('paczek.png'); border-radius: 50%; opacity: 0; animation: donutFall ease-in-out forwards; z-index: 2; }
+@keyframes donutFall {
+    0% { transform: translateY(-100px) scale(0.5) rotate(0deg); opacity: 0; }
+    20% { opacity: 1; transform: translateY(0) scale(1) rotate(45deg); }
+    100% { transform: translateY(500px) scale(0.8) rotate(720deg); opacity: 0; }
+}
+
+/* STYLIZACJA GRY SNAKE */
+#gameCanvas {
+    background-color: #f0f0f0;
+    border: 4px solid #ff69b4;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    max-width: 100%; /* Responsywność na telefonach */
+}
+
+.hidden { display: none; }
+footer { text-align: center; padding: 2rem 1rem; color: #888; font-size: 0.9rem; margin-top: 3rem; }
+
+@media (max-width: 768px) {
+    header h1 { font-size: 2.2rem; }
+    .side-deco { font-size: 3rem; } /* Mniejsze kwiatki na telefonie */
+    .intro-section { flex-direction: column; }
+    .buttons-container { min-height: 120px; }
+    .slider img { height: 300px; }
+}
+
+/* Style dla wielkich kwiatów po bokach */
+.big-side-flower {
+    position: fixed;
+    bottom: -150px; /* Startują schowane pod ekranem */
+    font-size: 18rem; /* Wielkość kwiatów - możesz zwiększyć! */
+    z-index: 3;
+    transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efekt sprężynowania */
+    opacity: 0;
+    pointer-events: none; /* Żeby nie przeszkadzały w klikaniu */
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+}
+
+#side-flower-left {
+    left: -80px;
+    transform: rotate(-30deg) scale(0);
+}
+
+#side-flower-right {
+    right: -80px;
+    transform: rotate(30deg) scale(0);
+}
+
+/* Klasa aktywowana przez JavaScript */
+.big-side-flower.active {
+    bottom: -40px;
+    opacity: 0.9;
+    transform: scale(1) rotate(0deg);
+}
+
+/* Opcjonalnie: na telefonach zrób je nieco mniejsze */
+@media (max-width: 768px) {
+    .big-side-flower {
+        font-size: 8rem;
+    }
+}

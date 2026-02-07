@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tylko dla Ciebie, Moja Walentynko! ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-animation"></div>
+
+    <header>
+        <div class="side-deco deco-left">🌸</div>
+        <div class="header-content">
+            <h1>DLA MOJEJ KISIULCI, KSIEŻNICZKI!</h1>
+            <p>Przygotuj się na dawkę miłości i... pączków!</p>
+        </div>
+        <div class="side-deco deco-right">🌸</div>
+    </header>
+
+    <main>
+        <section class="intro-section">
+            <div class="intro-text">
+                <h2>Cześć, moja Walentynko (muchawko)!</h2>
+                <p>Dawaj na pączulka ok? Ps. Kocham Cie :P</p>
+                <p>Czy zostaniesz moją oficjalną Walentynką i niezawodną towarzyszką w walce z pączkami w Tłusty Czwartek?</p>
+                <div class="buttons-container">
+                    <button id="btnYes">TAK! Z całego serca!</button>
+                    <button id="btnNo" class="flee-button">Absolutnie NIE</button>
+                </div>
+            </div>
+                <div class="intro-image">
+                    <img src="start.gif" alt="Para zakochanych">
+                </div>
+        </section>
+
+        <section id="gallery-section" class="gallery-section hidden">
+            <h2>To my, albo to ty.</h2>
+            <div class="slider-container">
+                <div class="slider">
+                    <img src="blow dry hair GIF.gif" alt="Wspólne wspomnienie 1">
+                    <img src="Cat GIF by Respective.gif" alt="Wspólne wspomnienie 2">
+                    <img src="Cat Kitty GIF by Castaways.gif" alt="Wspólne wspomnienie 3">
+                    <img src="Cat Laughing GIF.gif" alt="Wspólne wspomnienie 4">
+                    <img src="I Adore You GIF by Maryanne Chisholm - MCArtist.gif" alt="Wspólne wspomnienie 5">
+                    <img src="In Love Cat GIF.gif" alt="Wspólne wspomnienie 6">
+                    <img src="Skeleton Shield GIF.gif" alt="Wspólne wspomnienie 7">
+                    <img src="Wait Waiting GIF.gif" alt="Wspólne wspomnienie 8">
+                </div>
+                <button class="prev-button">&lt;</button>
+                <button class="next-button">&gt;</button>
+            </div>
+        </section>
+
+        <section id="donut-section" class="donut-section hidden">
+            <h2>Pączkowy Raj Czeka!</h2>
+            <p>Pączek.</p>
+            <button id="startDonutRain">Wywołaj Pączkowy Deszcz!</button>
+            
+            <div id="game-invite" class="hidden" style="margin-top: 30px;">
+                <p>Oho! Pączki opadły... ale jeden wciąż ucieka!</p>
+                <button id="startGameBtn" style="background-color: #FFD700; color: #d35400;">Zagraj w Pączkowego Węża! 🐍🍩</button>
+            </div>
+        </section>
+
+        <section id="game-section" class="game-section hidden">
+            <h2>Pączkowy Wąż</h2>
+            <p>Steruj strzałkami na klawiaturze. Zjedz jak najwięcej pączków!</p>
+            <p>Wynik: <span id="score">0</span></p>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <br>
+            <button id="restartGameBtn" class="hidden">Zagraj jeszcze raz</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Stworzone z miłością ❤️</p>
+    </footer>
+    <div id="side-flower-left" class="big-side-flower">🌸</div>
+    <div id="side-flower-right" class="big-side-flower">🌸</div>
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>
